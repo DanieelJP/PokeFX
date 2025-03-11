@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="vBox0" spacing="10" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="mp3.dam.elpuig.pokeFX.control.MainWindow"
+      stylesheets="@../styles/styles.css"
+      prefWidth="800" prefHeight="600">
+
+    <MenuBar>
+        <menus>
+            <Menu text="Archivo">
+                <items>
+                    <MenuItem text="Cargar datos" onAction="#clickMenuItemLoad"/>
+                    <SeparatorMenuItem />
+                    <MenuItem text="Cerrar" onAction="#clickMenuItemClose"/>
+                </items>
+            </Menu>
+            <Menu text="Estadísticas">
+                <items>
+                    <MenuItem text="Estadísticas Avanzadas" onAction="#showAdvancedStats"/>
+                </items>
+            </Menu>
+            <Menu text="Ayuda">
+                <items>
+                    <MenuItem text="Acerca de" onAction="#handleAbout"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        
+        <HBox fx:id="hBox0" spacing="10" alignment="CENTER_LEFT">
+            <Label text="Tipo:" styleClass="filter-label"/>
+            <ComboBox fx:id="cmbTipoPokemon" promptText="Selecciona tipo"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Total Pokémon:" styleClass="filter-label"/>
+            <Label fx:id="lblTotalCount" text="0" styleClass="count-label"/>
+        </HBox>
+
+        <ProgressBar fx:id="progressBar" visible="false" maxWidth="600"/>
+
+        <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
+            <Tab text="Estadísticas Básicas" closable="false">
+                <VBox fx:id="basicStatsContainer" spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                </VBox>
+            </Tab>
+            <Tab text="Gráfico Radar" closable="false">
+                <VBox fx:id="radarChartContainer" spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                </VBox>
+            </Tab>
+            <Tab text="Lista de Pokémon" closable="false">
+                <TableView fx:id="pokemonTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="nombreColumn" text="Nombre" prefWidth="150"/>
+                        <TableColumn fx:id="tipoColumn" text="Tipo" prefWidth="150"/>
+                        <TableColumn fx:id="statsColumn" text="Stats Totales" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </Tab>
+        </TabPane>
+    </VBox>
+</VBox>

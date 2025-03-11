@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox spacing="10" alignment="CENTER" stylesheets="@../styles/styles.css"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="mp3.dam.elpuig.pokeFX.control.ComparisonController">
+    
+    <HBox spacing="10" alignment="CENTER">
+        <ComboBox fx:id="cmbPokemon1" promptText="Selecciona Pokémon 1"/>
+        <ComboBox fx:id="cmbPokemon2" promptText="Selecciona Pokémon 2"/>
+        <Button text="Comparar" onAction="#compare"/>
+    </HBox>
+    
+    <LineChart fx:id="statsChart">
+        <xAxis>
+            <CategoryAxis label="Estadísticas"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Valor"/>
+        </yAxis>
+    </LineChart>
+</VBox> 
